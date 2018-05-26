@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,22 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="membre")
  * @ORM\Entity
  */
-class Membre
+class Membre extends BaseUser
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=50, nullable=false)
-     */
-    private $nom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=50, nullable=false)
-     */
-    private $prenom;
-
     /**
      * @var \DateTime
      *
@@ -36,30 +23,9 @@ class Membre
     /**
      * @var string
      *
-     * @ORM\Column(name="emil", type="string", length=100, nullable=false)
-     */
-    private $emil;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="address", type="string", length=250, nullable=true)
      */
     private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=50, nullable=false)
-     */
-    private $login;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=100, nullable=false)
-     */
-    private $password;
 
     /**
      * @var \DateTime
@@ -82,56 +48,12 @@ class Membre
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
-
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Membre
-     */
-    public function setNom($nom)
+     public function __construct()
     {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     *
-     * @return Membre
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
+        parent::__construct();
+        // your own logic
     }
 
     /**
@@ -207,54 +129,6 @@ class Membre
     }
 
     /**
-     * Set login
-     *
-     * @param string $login
-     *
-     * @return Membre
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Membre
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -302,13 +176,4 @@ class Membre
         return $this->createdAt;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 }
