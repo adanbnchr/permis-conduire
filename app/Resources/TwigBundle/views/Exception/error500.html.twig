@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{{ status_code }} {{ status_text }} {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('../../src/images/Logo/favicon_TAMI.ico') }}" />
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+            <!-- Ionicons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+            <!-- Theme style -->
+            <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
+            <!-- AdminLTE Skins. Choose a skin from the css/skins
+                 folder instead of downloading all of them to reduce the load. -->
+            <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
+        {% endblock %}
+    </head>
+
+    {% block body %}
+        <!-- <div class="content-wrapper">-->
+        <section class="content-header"></section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="error-page">
+                <h2 class="headline text-red"> {{ status_code }}</h2>
+
+                <div class="error-content">
+                    <h3><i class="fa fa-warning text-red"></i> Oops! {{ status_code }} Page {{ status_text }}.</h3>
+
+                    <p>
+                        La page ne peut pas être affichée.
+                        Il y a un problème avec la page que vous essayez d’atteindre et il ne peut pas être affichée.
+                        En attendant, vous pouvez retourner a la page d'<a href="{{path('tami_back_accueil')}}">Accueil </a> ou retournez à la <a href="javascript:history.go(-1)"> page précédente </a>.
+                    </p>
+
+                </div>
+                <!-- /.error-content -->
+            </div>
+            <!-- /.error-page -->
+        </section>
+        <!--</div>-->
+    {% endblock %}
+
+    {% block javascripts %}
+        <!-- jQuery 2.2.3 -->
+        <script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        <!-- FastClick -->
+        <script src="{{ asset('plugins/fastclick/fastclick.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ asset('dist/js/app.min.js') }}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{ asset('dist/js/demo.js') }}"></script>
+    {% endblock %}

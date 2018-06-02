@@ -1,0 +1,46 @@
+{% extends "@FOSUser/baseLogin.html.twig" %}
+
+{% block body %}
+    {{parent()}}
+    <div class="register-box">
+        <div class="register-logo">
+            <a><b>Permis</b> Conduire</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div> 
+        <div class="col-md-6">
+            {% block fos_user_content %}  {% endblock fos_user_content %}
+        </div> 
+    </div>
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            <div class="col-md-3"></div> 
+            <div class="col-md-6">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <i class="fa fa-warning"></i>
+                        <h3 class="box-title">Message :</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="alert alert-success alert-dismissible">
+                            <h4><i class="icon fa fa-check"></i> Note : </h4>         
+                            {% for message in messages %}       
+
+                                <div class="flash-{{ type }}">
+                                    <p>
+                                        {{ message }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

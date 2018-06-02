@@ -1,13 +1,174 @@
+{% trans_default_domain 'AppBundle' %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        {% block title %}
+            <!-- ======================= block title ======================= -->
+            <title>Welcome</title>
+            <!-- ======================= ./ block title ======================= -->
+        {% endblock %}
+
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% block stylesheets %}     
+            <!-- ======================= block stylesheets ======================= -->
+            <!-- Bootstrap 3.3.6 -->
+            <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+            <!-- Ionicons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+            <!-- Theme style -->
+            <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
+            <!-- Skins. Choose a skin from the css/skins
+                 folder instead of downloading all of them to reduce the load. -->
+            <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
+
+            <link rel="stylesheet" href="{{asset('flag/flags.css')}}">
+            <link rel="stylesheet" href="{{asset('flag/flags.min.css')}}">
+            <!-- ======================= ./ block stylesheets ======================= -->
+        {% endblock %}
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block body %}
+        <body class="hold-transition skin-red sidebar-mini">
+    {% endblock %}
+        <div class="wrapper">
+            {% block head %}
+                <!-- ======================= block head ======================= -->
+                <header class="main-header">
+                    <!-- Logo -->
+                    <a class="logo">
+                        <!-- mini logo for sidebar mini 50x50 pixels -->
+                        <span class="logo-mini"><b>{{'base.logo-mini.logo-mini-1'|trans | upper }}</b>{{'base.logo-mini.logo-mini-2'|trans | upper}}</span>
+                        <!-- logo for regular state and mobile devices -->
+                        <span class="logo-lg"><b>{{'base.logo-lg.logo-lg-1'|trans | capitalize}}</b>{{'base.logo-lg.logo-lg-1'|trans | capitalize}}</span>
+                    </a>
+                    <!-- Header Navbar: style can be found in header.less -->
+                    <nav class="navbar navbar-static-top">
+                        <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                            <span class="sr-only"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+
+                        <div class="navbar-custom-menu">
+                            <ul class="nav navbar-nav">
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                        {% if app.request.getLocale() == "en" %}
+                                            <img class="flag flag-vg"/> English
+                                        {% elseif app.request.getLocale() == "fr"%}
+                                            <img class="flag flag-fr"/> Français
+                                        {% endif %}
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        {% if app.request.getLocale() == "en" %}
+                                            <li style="background-color: rgba(41, 13, 13, 0.14);"><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(({'_locale':'en'}))) }}"><img class="flag flag-vg"/> English</a></li>
+                                                {% else %}
+                                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(({'_locale':'en'}))) }}"><img class="flag flag-vg"/> English</a></li>
+                                                {% endif %}
+                                                {% if app.request.getLocale() == "fr" %}
+                                            <li style="background-color: rgba(41, 13, 13, 0.14);"><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(({'_locale':'fr'}))) }}"><img class="flag flag-fr"/> Français</a></li>
+                                                {% else %}
+                                            <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(({'_locale':'fr'}))) }}"><img class="flag flag-fr"/> Français</a></li>
+                                                {% endif %}
+                                    </ul>
+                                </li>
+                                <!-- User Account: style can be found in dropdown.less -->
+                                <li class="dropdown user user-menu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <img src="{{asset('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+                                        {% if app.user.username is defined %}
+                                            <span class="hidden-xs">{{ app.user.username | capitalize}}</span>
+                                        {% endif %}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <!-- User image -->
+                                        <li class="user-header">
+                                            <img src="{{asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                                {% if app.user.firsname is defined and  app.user.lastname is defined and app.user.email is defined%}
+                                                <p>
+                                                    {{ app.user.firsname | capitalize}} {{ app.user.lastname | capitalize}}
+                                                    <small>{{ app.user.email }}</small>
+                                                </p>
+                                                {% endif %}
+                                        </li>
+                                        <!-- Menu Footer-->
+                                        <li class="user-footer">
+                                            <div class="pull-left">
+                                                <a href="#" class="btn btn-default btn-flat">{{'base.Profile'|trans | capitalize}}</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">{{'base.Sign_out'|trans | capitalize}}</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <!-- ======================= ./ block head ======================= -->
+            {% endblock %}
+
+            {% block menu %}
+                <!-- ======================= block menu  ./ block menu ======================= -->
+            {% endblock %}
+
+            {% block content %}
+                <!-- ======================= block body ./ block body ======================= -->
+            {% endblock %}
+
+            {% block footer %}
+                <!-- ======================= block footer ======================= -->
+                <footer class="main-footer">
+                    <div class="pull-right hidden-xs">
+                        <b>Version</b> R-1.0
+                    </div>
+                    <strong>Copyright &copy; 2017 <a href="ZeTeam.tn">ZeTeam</a>.</strong> All rights
+                    reserved.
+                </footer>
+                <!-- ======================= ./ block footer ======================= -->
+            {% endblock %}
+
+            {% block ControlSidebar %} 
+                <!-- ======================= ./ ControlSidebar ======================= -->
+               
+                <!-- ======================= ./ ControlSidebar ======================= -->
+            {% endblock %}
+
+            {% block javascripts %}
+                <!-- ======================= block javascript ======================= -->
+                <!-- jQuery 2.2.3 -->
+                <script src="{{asset('plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+                <!-- Bootstrap 3.3.6 -->
+                <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+                <!-- SlimScroll -->
+                <script src="{{asset('plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+                <!-- FastClick -->
+                <script src="{{asset('plugins/fastclick/fastclick.js')}}"></script>
+                <!-- AdminLTE App -->
+                <script src="{{asset('dist/js/app.min.js')}}"></script>
+                <!-- AdminLTE for demo purposes -->
+                <script src="{{asset('dist/js/demo.js')}}"></script>
+                <!-- fosjsrouting -->
+                <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+{#                <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>#}
+                <!-- ======================= ./ block javascript ======================= -->
+            {% endblock %}
+
+        </div>
     </body>
 </html>

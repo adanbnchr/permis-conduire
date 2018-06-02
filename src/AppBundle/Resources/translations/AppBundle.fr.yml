@@ -1,0 +1,96 @@
+# ----------------------------------- #
+#         app/Resources/views         #
+# ----------------------------------- #
+
+#/base.html.twig
+base:
+    title: "FR_Welcome"
+    Profile: "FR_Profile"
+    Sign_out: "FR_Sign out"
+    logo-mini:
+        logo-mini-1: "P"
+        logo-mini-2: "C"
+    logo-lg:
+        logo-lg-1: "Permis"
+        logo-lg-2: "Conduire"
+
+
+# ----------------------------------- #
+#   AppBundle/Resources/views   #
+# ----------------------------------- #
+
+#/Menu.html.twig
+Menu:
+    title: "FR_Welcome Menu"
+    online: "FR_Online"
+    search: "FR_Search..."
+    main_navigation: "FR_Menu"
+    link:
+        home: "FR_Home"
+        site: "FR_Site"
+
+#/Default
+Default:
+    #/index.html.twig
+    index:
+        title: "FR_Welcome home"
+        section1:
+            h1: "FR_Welcome home"
+            link1: "FR_Home"
+            link2: "FR_Examples"
+            link3: "FR_Blank page"
+
+#/register
+Uregister:
+    #/Form/RegisterType
+    form:
+        firstname:
+            label: "FR_First Name : "
+            invalid_message: "FR_The first Name field is required"
+            placeholder: "FR_First Name"
+        lastname:
+            label: "FR_Last Name : "
+            invalid_message: "FR_The last Name field is required"
+            placeholder: "FR_Last Name"
+        mobile:
+            label: "FR_Mobile : "
+            invalid_message: "FR_Mobile field is required"
+            placeholder: "FR_Mobile"
+        img:
+            label: "FR_Image : "
+
+Site:
+    #/new.html.twig
+    new:
+        title: "FR_New Site"
+        titleformBlock: "FR_Insert a new site"
+        submit: "FR_Save"
+    #/edit.html.twig
+    edit:
+        title: "FR_Edit site"
+    #/Form/SiteType
+    form:
+        name:
+            label: "FR_name"
+            invalid_message: "FR_Invalid name, Verify your name"
+            placeholder: "FR_name"
+        phone:
+            label: "FR_phone"
+            invalid_message: "FR_Invalid phone number, Verify your phone number"
+            placeholder: "FR_phone"
+        mail:
+            label: "FR_E-mail"
+            invalid_message: "FR_Verify your email address, an email address contains% at% and% point%"
+            placeholder: "FR_E-mail"
+        adresse:
+            label: "FR_adresse"
+            invalid_message: "FR_Invalid adresse, Verify your adresse"
+            placeholder: "FR_adresse"
+        website:
+            label: "FR_Web Site"
+            invalid_message: "FR_Invalid web site"
+            placeholder: "FR_Web Site"
+        blocked:
+            label: "FR_State"
+            Activer: "FR_Activer"
+            Désactiver: "FR_Désactiver"

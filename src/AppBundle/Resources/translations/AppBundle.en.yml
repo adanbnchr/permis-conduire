@@ -1,0 +1,95 @@
+# ----------------------------------- #
+#         app/Resources/views         #
+# ----------------------------------- #
+
+#/base.html.twig
+base:
+    title: "EN_Welcome"
+    Profile: "EN_Profile"
+    Sign_out: "EN_Sign out"
+    logo-mini:
+        logo-mini-1: "P"
+        logo-mini-2: "C"
+    logo-lg:
+        logo-lg-1: "Permis"
+        logo-lg-2: "Conduire"
+
+# ----------------------------------- #
+#   AppBundle/Resources/views   #
+# ----------------------------------- #
+
+#/Menu.html.twig
+Menu:
+    title: "EN_Welcome"
+    online: "EN_Online"
+    search: "EN_Search..."
+    main_navigation: "EN_Menu"
+    link:
+        home: "EN_Home"
+        site: "EN_Site"
+        
+#/Default
+Default:
+    #/index.html.twig
+    index:
+        title: "EN_Welcome home"
+        section1:
+            h1: "EN_Welcome home"
+            link1: "EN_Home"
+            link2: "EN_Examples"
+            link3: "EN_Blank page"
+
+#/register
+Uregister:
+    #/Form/RegisterType
+    form:
+        firstname:
+            label: "EN_First Name : "
+            invalid_message: "EN_The first Name field is required"
+            placeholder: "EN_First Name"
+        lastname:
+            label: "EN_Last Name : "
+            invalid_message: "EN_The last Name field is required"
+            placeholder: "EN_Last Name"
+        mobile:
+            label: "EN_Mobile : "
+            invalid_message: "EN_Mobile field is required"
+            placeholder: "EN_Mobile"
+        img:
+            label: "EN_Image : "
+
+Site:
+    #/new.html.twig
+    new:
+        title: "EN_New Site"
+        titleformBlock: "EN_Insert a new site"
+        submit: "EN_Save"
+    #/edit.html.twig
+    edit:
+        title: "EN_Edit site"
+    #/Form/SiteType
+    form:
+        name:
+            label: "EN_name"
+            invalid_message: "EN_Invalid name, Verify your name"
+            placeholder: "EN_name"
+        phone:
+            label: "EN_phone"
+            invalid_message: "EN_Invalid phone number, Verify your phone number"
+            placeholder: "EN_phone"
+        mail:
+            label: "EN_E-mail"
+            invalid_message: "EN_Verify your email address, an email address contains% at% and% point%"
+            placeholder: "EN_E-mail"
+        adresse:
+            label: "EN_adresse"
+            invalid_message: "EN_Invalid adresse, Verify your adresse"
+            placeholder: "EN_adresse"
+        website:
+            label: "EN_Web Site"
+            invalid_message: "EN_Invalid web site"
+            placeholder: "EN_Web Site"
+        blocked:
+            label: "EN_State"
+            Activer: "EN_Activer"
+            Désactiver: "EN_Désactiver"

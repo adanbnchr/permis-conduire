@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="box box-primary">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ 'resetting.request.submit'|trans }}</h3>
+        </div>
+        <div class="box-body">  
+            <div class="form-group has-feedback">
+                <label for="username">{{ 'resetting.request.username'|trans }}</label>
+                <input type="text" id="username" name="username" value="" required="required" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}" />
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="box-footer">
+            <div class="row">
+            </div><div class="col-md-7"></div>
+            <div class="col-md-5">
+                <button type="submit" id="_submit" name="_submit" class="btn btn-block btn-social btn-flat btn-success" style="text-align: center;">
+                    <i class="fa fa-spinner"></i>
+                    {{ 'resetting.request.submit'|trans }}
+                </button>
+            </div>
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="social-auth-links text-center">
+                        <p>- OR -</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="social-auth-links text-center">
+                        <a class="btn btn-block btn-social btn-primary btn-flat" style="text-align: center;" href="{{ path('fos_user_security_login') }}">
+                            <i class="fa fa-sign-in"></i>
+                            {{ 'layout.login'|trans }}
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="social-auth-links text-center">
+                        <a href="{{ path('fos_user_registration_register') }}" style="text-align: center;" class="btn btn-block btn-social btn-info btn-flat">
+                            <i class="fa fa-save"></i>
+                            {{ 'registration.submit'|trans }}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>       
+    </form>
+
+</div>  

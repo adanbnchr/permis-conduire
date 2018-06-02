@@ -1,0 +1,150 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="box box-primary">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    <div class="box-header with-border">
+        <h3 class="box-title">{{ 'registration.submit'|trans }}</h3>
+    </div>
+
+    <div class="box-body">    
+        <!-- ========== firsname ========== -->    
+        <div class="col-md-4">
+            {{ form_label(form.firsname) }}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </span>
+                {{ form_widget(form.firsname, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>  
+            {% if form_errors(form.firsname) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.firsname) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== lastname ========== -->
+        <div class="col-md-4">
+            {{ form_label(form.lastname) }}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </span>
+                {{ form_widget(form.lastname, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>  
+            {% if form_errors(form.lastname) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.lastname) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== username ========== -->
+        <div class="col-md-4">
+            {{ form_label(form.username) }}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user-secret"></i>
+                </span>
+                {{ form_widget(form.username, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>  
+            {% if form_errors(form.username) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.username) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== mobile ========== -->
+        <div class="col-md-6">
+            {{ form_label(form.mobile) }}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-mobile"></i>
+                </span>
+                {{ form_widget(form.mobile, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>
+            {% if form_errors(form.mobile) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.mobile) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== email ========== -->
+        <div class="col-md-6">
+            {{ form_label(form.email) }}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                {{ form_widget(form.email, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>    
+            {% if form_errors(form.email) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.email) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== 1 plainPassword ========== -->
+        <div class="col-md-6">
+            {{ form_label(form.plainPassword.first) }}    
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                </span>
+                {{ form_widget(form.plainPassword.first, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>    
+            {% if form_errors(form.plainPassword.first) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.plainPassword.first) }}</label>
+            {% endif %}
+        </div>
+        <!-- ========== 2 plainPassword ========== -->
+        <div class="col-md-6">
+            {{ form_label(form.plainPassword.second) }}    
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                </span>
+                {{ form_widget(form.plainPassword.second, {'attr':{'class':'form-control'}}) }}
+                <span class="form-control-feedback"></span>
+            </div>
+            {% if form_errors(form.plainPassword.second) %}
+                <label class="control-label text-red" for="inputError">{{ form_errors(form.plainPassword.second) }}</label>
+            {% endif %}
+        </div>
+    </div>  
+
+    <div class="box-footer">
+        <div class="row">
+        </div><div class="col-md-8"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-block btn-social btn-flat btn-success" style="text-align: center;">
+                <i class="fa fa-save"></i>
+                {{ 'registration.submit'|trans }}
+            </button>
+        </div>
+        <div class="row"> 
+            <div class="col-md-12">
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="social-auth-links text-center">
+                    <a class="btn btn-block btn-social btn-primary btn-flat" style="text-align: center;" href="{{ path('fos_user_security_login') }}">
+                        <i class="fa fa-sign-in"></i>
+                        {{ 'layout.login'|trans }}
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="social-auth-links text-center">
+                    <a href="{{ path('fos_user_resetting_request') }}" style="text-align: center;" class="btn btn-block btn-social btn-info btn-flat">
+                        <i class="fa fa-spinner"></i> 
+                        {{ 'resetting.request.submit'|trans }}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</div>

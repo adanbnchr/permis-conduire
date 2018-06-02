@@ -1,0 +1,31 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="box box-primary">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ 'resetting.request.submit'|trans }}</h3>
+        </div>
+
+        <div class="box-body">  
+            <div class="alert alert-success alert-dismissible">
+                {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+            </div>
+        </div>
+
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-5">
+                    <div class="social-auth-links text-center">
+                        <a href="{{ path('fos_user_security_login') }}" style="text-align: center;" class="btn btn-block btn-social btn-primary btn-flat">
+                            <i class="fa fa-sign-in"></i>
+                            {{ 'layout.login'|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    {% endblock %}
