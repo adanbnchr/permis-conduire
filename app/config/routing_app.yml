@@ -1,6 +1,10 @@
+ 
 app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     
 #FosUserBundle Routes
 #fos_user_security:
@@ -23,5 +27,3 @@ app:
 #    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
 #    prefix: /{_locale}/profile
 
-fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,7 @@
+app_categorie:
+    resource: "@AppBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+homepage:
+    defaults: { _controller: AppBundle:Default:index }
+    path:     /

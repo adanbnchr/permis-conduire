@@ -1,3 +1,7 @@
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 routing_language:
     resource: "routing_app.yml"
     prefix:   /{_locale}
